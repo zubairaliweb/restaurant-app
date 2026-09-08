@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #211a15;
+  --color-charcoal-light: #2f251e;
+  --color-cream: #fbf7ef;
+  --color-cream-dim: #f2ead9;
+  --color-ember: #c1440e;
+  --color-ember-dark: #9c360a;
+  --color-basil: #33502e;
+  --color-saffron: #e3a857;
+  --color-ink: #2a211b;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background-color: var(--color-cream);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ember);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-ember)] px-6 py-3 font-body text-sm font-semibold tracking-wide text-[var(--color-cream)] transition-colors hover:bg-[var(--color-ember-dark)] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--color-charcoal)] bg-transparent px-6 py-3 font-body text-sm font-semibold tracking-wide text-[var(--color-charcoal)] transition-colors hover:bg-[var(--color-charcoal)] hover:text-[var(--color-cream)];
+  }
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--color-cream)]/40 bg-transparent px-6 py-3 font-body text-sm font-semibold tracking-wide text-[var(--color-cream)] transition-colors hover:bg-[var(--color-cream)] hover:text-[var(--color-charcoal)];
+  }
+  .input-field {
+    @apply w-full rounded-sm border border-[var(--color-ink)]/20 bg-white px-4 py-2.5 font-body text-sm text-[var(--color-ink)] placeholder:text-[var(--color-ink)]/40 focus:border-[var(--color-ember)];
+  }
+  .label-field {
+    @apply mb-1.5 block font-body text-xs font-semibold uppercase tracking-wider text-[var(--color-ink)]/60;
+  }
+}
